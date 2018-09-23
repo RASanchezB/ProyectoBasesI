@@ -143,6 +143,19 @@ public class Main extends javax.swing.JFrame {
         jt_NomModelo = new javax.swing.JTextField();
         jLabel50 = new javax.swing.JLabel();
         jb_GuardarModelo = new javax.swing.JButton();
+        RegistrarTecnico = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        RegistrarTec_nombre = new javax.swing.JTextField();
+        RegistrarTec_direccion = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        RegistrarTec_salario = new javax.swing.JTextField();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        bt_guardarTecnico = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        RegistrarTec_Telefono = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -376,6 +389,11 @@ public class Main extends javax.swing.JFrame {
         jpanel_opTecnicos.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton9.setText("Registrar un nuevo tecnico");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
 
         jLabel30.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel30.setText("Administracion de Tecnicos");
@@ -1099,6 +1117,107 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Registrar Tecnico");
+
+        jLabel37.setText("DNI:");
+
+        jLabel52.setText("Nombre:");
+
+        jLabel53.setText("Direccion:");
+
+        jLabel55.setText("Salario");
+
+        bt_guardarTecnico.setText("Guardar Tecnico");
+        bt_guardarTecnico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_guardarTecnicoMouseClicked(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel6.setText("Telefono");
+
+        RegistrarTec_Telefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarTec_TelefonoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout RegistrarTecnicoLayout = new javax.swing.GroupLayout(RegistrarTecnico.getContentPane());
+        RegistrarTecnico.getContentPane().setLayout(RegistrarTecnicoLayout);
+        RegistrarTecnicoLayout.setHorizontalGroup(
+            RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarTecnicoLayout.createSequentialGroup()
+                .addContainerGap(251, Short.MAX_VALUE)
+                .addComponent(bt_guardarTecnico)
+                .addGap(38, 38, 38))
+            .addGroup(RegistrarTecnicoLayout.createSequentialGroup()
+                .addGroup(RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(RegistrarTecnicoLayout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel1))
+                    .addGroup(RegistrarTecnicoLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel6)
+                        .addGap(34, 34, 34)
+                        .addGroup(RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox1, 0, 269, Short.MAX_VALUE)
+                            .addComponent(RegistrarTec_Telefono))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistrarTecnicoLayout.createSequentialGroup()
+                    .addGap(27, 27, 27)
+                    .addGroup(RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(RegistrarTecnicoLayout.createSequentialGroup()
+                            .addGroup(RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel52)
+                                .addComponent(jLabel53)
+                                .addComponent(jLabel55))
+                            .addGap(21, 21, 21)
+                            .addGroup(RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(RegistrarTec_nombre)
+                                .addComponent(RegistrarTec_direccion)
+                                .addComponent(RegistrarTec_salario)))
+                        .addGroup(RegistrarTecnicoLayout.createSequentialGroup()
+                            .addComponent(jLabel37)
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(27, 27, 27)))
+        );
+        RegistrarTecnicoLayout.setVerticalGroup(
+            RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarTecnicoLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addGroup(RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(RegistrarTec_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addComponent(bt_guardarTecnico)
+                .addContainerGap())
+            .addGroup(RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistrarTecnicoLayout.createSequentialGroup()
+                    .addGap(51, 51, 51)
+                    .addComponent(jLabel37)
+                    .addGap(91, 91, 91)
+                    .addGroup(RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel52)
+                        .addComponent(RegistrarTec_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(12, 12, 12)
+                    .addGroup(RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel53)
+                        .addComponent(RegistrarTec_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(RegistrarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel55)
+                        .addComponent(RegistrarTec_salario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(54, Short.MAX_VALUE)))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aeropuerto");
 
@@ -1284,6 +1403,29 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_crearEmpleadoActionPerformed
 
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        RegistrarTecnico.pack();
+        RegistrarTecnico.show();
+        RegistrarTecnico.setLocationRelativeTo(this);
+        RegistrarTecnico.setVisible(true);
+        RegistrarTecnico.setEnabled(true);
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void bt_guardarTecnicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_guardarTecnicoMouseClicked
+        if (RegistrarTec_direccion.getText().equals("")|| RegistrarTec_nombre.getText().equals("")|| RegistrarTec_salario.getText().equals("")|| RegistrarTec_Telefono.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Porfavor no dije ningun espacio en blanco");
+        }else if (isNumeric(RegistrarTec_salario.getText())==false ||isNumeric(RegistrarTec_Telefono.getText())==false  ) {
+            JOptionPane.showMessageDialog(this, "Porfavor introduzca valores numericos en las casillas de telefono y sueldo");
+        }
+        else{
+        
+        }
+    }//GEN-LAST:event_bt_guardarTecnicoMouseClicked
+
+    private void RegistrarTec_TelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarTec_TelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistrarTec_TelefonoActionPerformed
+
     public boolean isNumeric(String strNum) {
         try {
             double d = Double.parseDouble(strNum);
@@ -1330,7 +1472,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog CrearCuenta;
     private javax.swing.JDialog MainWindow;
     private javax.swing.JDialog RegistrarAvion;
+    private javax.swing.JTextField RegistrarTec_Telefono;
+    private javax.swing.JTextField RegistrarTec_direccion;
+    private javax.swing.JTextField RegistrarTec_nombre;
+    private javax.swing.JTextField RegistrarTec_salario;
+    private javax.swing.JDialog RegistrarTecnico;
     private javax.swing.JButton boton_crearEmpleado;
+    private javax.swing.JButton bt_guardarTecnico;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -1346,9 +1494,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1374,6 +1524,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -1389,6 +1540,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel10;
