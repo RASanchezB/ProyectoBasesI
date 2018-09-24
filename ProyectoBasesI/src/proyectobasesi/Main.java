@@ -5,6 +5,12 @@
  */
 package proyectobasesi;
 
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +24,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        Database db=new Database();
+        
         db.openConnection();
     }
 
@@ -969,6 +975,11 @@ public class Main extends javax.swing.JFrame {
         );
 
         boton_crearEmpleado.setText("Crear Empleado");
+        boton_crearEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_crearEmpleadoMouseClicked(evt);
+            }
+        });
         boton_crearEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_crearEmpleadoActionPerformed(evt);
@@ -999,7 +1010,7 @@ public class Main extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 44, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(boton_crearEmpleado)
@@ -1017,8 +1028,8 @@ public class Main extends javax.swing.JFrame {
         CrearCuentaLayout.setVerticalGroup(
             CrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CrearCuentaLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         jt_NRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -1396,19 +1407,18 @@ public class Main extends javax.swing.JFrame {
         String avion_modelo;
         if (jt_NModelo.getText().equals("") || jt_NRegistro.getText().equals("") || jt_NomModelo.getText().equals("")) {//ver si se deje en blanco
             JOptionPane.showMessageDialog(this, "No deje ningun espacio vacio");
-        }else if (isNumeric(jt_NModelo.getText())==false ||isNumeric(jt_NRegistro.getText())==false  ) {//validacion de numeros
+        } else if (isNumeric(jt_NModelo.getText()) == false || isNumeric(jt_NRegistro.getText()) == false) {//validacion de numeros
             JOptionPane.showMessageDialog(this, "Porfavor introduzca valores numericos en las casillas de Numero de modelo o Numero de Registro");
-        }else{//guardar
-            avion_modelo=jt_NomModelo.getText();
-            avion_registro=Integer.parseInt(jt_NRegistro.getText());
-            Navion_modelo=Integer.parseInt(jt_NModelo.getText());
+        } else {//guardar
+            avion_modelo = jt_NomModelo.getText();
+            avion_registro = Integer.parseInt(jt_NRegistro.getText());
+            Navion_modelo = Integer.parseInt(jt_NModelo.getText());
             //aqui se envia a la base de datos
-            
-            
+
             //aqui ya se cierra
             JOptionPane.showMessageDialog(this, "Se ha guardado exitosamente");
             RegistrarAvion.dispose();
-            
+
         }
     }//GEN-LAST:event_jb_GuardarModeloMouseClicked
 
@@ -1425,13 +1435,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9MouseClicked
 
     private void bt_guardarTecnicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_guardarTecnicoMouseClicked
-        if (RegistrarTec_direccion.getText().equals("")|| RegistrarTec_nombre.getText().equals("")|| RegistrarTec_salario.getText().equals("")|| RegistrarTec_Telefono.getText().equals("")) {
+        if (RegistrarTec_direccion.getText().equals("") || RegistrarTec_nombre.getText().equals("") || RegistrarTec_salario.getText().equals("") || RegistrarTec_Telefono.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Porfavor no dije ningun espacio en blanco");
-        }else if (isNumeric(RegistrarTec_salario.getText())==false ||isNumeric(RegistrarTec_Telefono.getText())==false  ) {
+        } else if (isNumeric(RegistrarTec_salario.getText()) == false || isNumeric(RegistrarTec_Telefono.getText()) == false) {
             JOptionPane.showMessageDialog(this, "Porfavor introduzca valores numericos en las casillas de telefono y sueldo");
-        }
-        else{
-        
+        } else {
+
         }
     }//GEN-LAST:event_bt_guardarTecnicoMouseClicked
 
@@ -1474,6 +1483,35 @@ public class Main extends javax.swing.JFrame {
         RegistrarControlador.setVisible(true);
         RegistrarControlador.setEnabled(true);
     }//GEN-LAST:event_jButton12MouseClicked
+
+    private void boton_crearEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_crearEmpleadoMouseClicked
+        
+        Connection cn=db.getMyConnection();
+        Statement st = null;
+        int dni=0000;
+        try {
+            st = (Statement) cn.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String sql = "INSERT INTO empleado(emp_afiliacion,contraseña)" + "VALUES('" + jtext_affiliacion.getText() + "','" + jtext_contraseña.getText() + "');";
+        try {
+            st.executeUpdate(sql);
+            //dni=rs2.getInt("");
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String queryDNI="SELECT * FROM empleado ORDER BY dni DESC LIMIT 1";
+        try {
+            ResultSet rs=st.executeQuery(queryDNI);
+            while (rs.next()) {                
+                dni=rs.getInt("dni");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(this, "Se ha guardado el empleado, su respectivo DNI es:"+dni);
+    }//GEN-LAST:event_boton_crearEmpleadoMouseClicked
 
     public boolean isNumeric(String strNum) {
         try {
@@ -1649,4 +1687,5 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField log_DNI;
     private javax.swing.JTextField log_PASS;
     // End of variables declaration//GEN-END:variables
+    Database db = new Database();
 }

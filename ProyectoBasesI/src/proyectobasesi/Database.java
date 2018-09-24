@@ -32,6 +32,12 @@ public class Database {
      public Connection getMyConnection(){
         return conn;
     }
+
+    public Statement getStatement() {
+        return statement;
+    }
+
+    
     
     
     public void close(ResultSet rs){
@@ -110,5 +116,6 @@ public class Database {
        }
        return listaTecnico;
    }
+   
    
 }
