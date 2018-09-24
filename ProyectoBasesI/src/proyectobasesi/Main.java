@@ -40,7 +40,6 @@ public class Main extends javax.swing.JFrame {
         MainWindow = new javax.swing.JDialog();
         jpane_menu = new javax.swing.JTabbedPane();
         jpanel_pruebas = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -82,7 +81,6 @@ public class Main extends javax.swing.JFrame {
         jTextField19 = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable6 = new javax.swing.JTable();
-        jButton6 = new javax.swing.JButton();
         jLabel61 = new javax.swing.JLabel();
         jpanel_opAviones = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
@@ -200,9 +198,6 @@ public class Main extends javax.swing.JFrame {
         MainWindow.setTitle("Administraciones");
 
         jpanel_pruebas.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel18.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel18.setText("Realizar una prueba");
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Tecnico", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 24))); // NOI18N
@@ -362,7 +357,7 @@ public class Main extends javax.swing.JFrame {
         jpanel_pruebas1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel29.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel29.setText("Realizar una prueba");
+        jLabel29.setText("Correo de Pruebas");
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Tecnico", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 24))); // NOI18N
@@ -383,36 +378,46 @@ public class Main extends javax.swing.JFrame {
 
         jLabel60.setText("DNI");
 
+        jTextField9.setEditable(false);
+
+        jTextField13.setEditable(false);
+
+        jTextField14.setEditable(false);
         jTextField14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField14ActionPerformed(evt);
             }
         });
 
+        jTextField15.setEditable(false);
         jTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField15ActionPerformed(evt);
             }
         });
 
+        jTextField16.setEditable(false);
         jTextField16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField16ActionPerformed(evt);
             }
         });
 
+        jTextField17.setEditable(false);
         jTextField17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField17ActionPerformed(evt);
             }
         });
 
+        jTextField18.setEditable(false);
         jTextField18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField18ActionPerformed(evt);
             }
         });
 
+        jTextField19.setEditable(false);
         jTextField19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField19ActionPerformed(evt);
@@ -512,13 +517,6 @@ public class Main extends javax.swing.JFrame {
             jTable6.getColumnModel().getColumn(7).setResizable(false);
         }
 
-        jButton6.setText("Crear Prueba Nueva");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
         jLabel61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avioncito.png"))); // NOI18N
 
         javax.swing.GroupLayout jpanel_pruebas1Layout = new javax.swing.GroupLayout(jpanel_pruebas1);
@@ -539,11 +537,7 @@ public class Main extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(87, 87, 87)))
-                .addGroup(jpanel_pruebas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanel_pruebas1Layout.createSequentialGroup()
-                        .addComponent(jButton6)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jpanel_pruebas1Layout.setVerticalGroup(
@@ -553,8 +547,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(jpanel_pruebas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanel_pruebas1Layout.createSequentialGroup()
-                        .addComponent(jButton6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(29, 29, 29)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpanel_pruebas1Layout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -567,10 +560,6 @@ public class Main extends javax.swing.JFrame {
         jpanel_pruebas.setLayout(jpanel_pruebasLayout);
         jpanel_pruebasLayout.setHorizontalGroup(
             jpanel_pruebasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanel_pruebasLayout.createSequentialGroup()
-                .addGap(344, 344, 344)
-                .addComponent(jLabel18)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jpanel_pruebasLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -590,8 +579,7 @@ public class Main extends javax.swing.JFrame {
         jpanel_pruebasLayout.setVerticalGroup(
             jpanel_pruebasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanel_pruebasLayout.createSequentialGroup()
-                .addComponent(jLabel18)
-                .addGap(25, 25, 25)
+                .addGap(53, 53, 53)
                 .addGroup(jpanel_pruebasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanel_pruebasLayout.createSequentialGroup()
                         .addComponent(jButton4)
@@ -1718,6 +1706,7 @@ public class Main extends javax.swing.JFrame {
                             jpane_menu.setEnabledAt(1, false);
                             jpane_menu.setEnabledAt(2, false);
                             jpane_menu.setEnabledAt(3, false);
+                            jpane_menu.setEnabledAt(4, false);
                         }
                     }
 
@@ -1912,10 +1901,6 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField19ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     public boolean isNumeric(String strNum) {
         try {
             double d = Double.parseDouble(strNum);
@@ -1983,7 +1968,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -2000,7 +1984,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
