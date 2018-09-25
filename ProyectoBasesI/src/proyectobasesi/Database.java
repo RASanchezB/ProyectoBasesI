@@ -14,8 +14,8 @@ public class Database {
 
     public Connection openConnection() {
         if (conn == null) {
-            String url = "jdbc:mysql://localhost:3306/airport?zeroDateTimeBehavior=convertToNull";//url de base de datos en xampp
-            String dbName = "airport";//nombre de la base
+            String url = "jdbc:mysql://localhost:3306/MYairport?zeroDateTimeBehavior=convertToNull";//url de base de datos en xampp
+            String dbName = "MYairport";//nombre de la base
             String driver = "com.mysql.jdbc.Driver";//el drive para conectarlo
             String userName = "root";//el username 
             String password = "";//contraseña vacia
@@ -94,7 +94,7 @@ public class Database {
         }
         return listaControladores;
     }
-
+//String query = "Select *From empleado E where dni not in(Select dni From tecnico   where  dni=E.dni)";
     public ArrayList<tecnico> getlistaTecnico() {
         ArrayList<tecnico> listaTecnico = new ArrayList<tecnico>();
         Connection conexion = getMyConnection();
@@ -171,7 +171,7 @@ public class Database {
             rs = st.executeQuery(query);
             Aviones avion;
             while (rs.next()) {
-                avion = new Aviones(rs.getInt(1), rs.getString(2), rs.getInt(3));
+                avion = new Aviones(rs.getInt(1), rs.getInt(2));
                 listaAvion.add(avion);
 
             }
@@ -179,5 +179,27 @@ public class Database {
             System.out.println("error");
         }
         return listaAvion;
+    }
+    
+     public ArrayList<empleado> getlistaEmpleadoParaControlador() {
+        ArrayList<empleado> listaEmpleado = new ArrayList<empleado>();
+        Connection conexion = getMyConnection();
+
+        String query = "Select * From empleado E where dni not in (Select dni From tecnico  where  dni=E.dni) and dni not in(Select dni From controlador_aereo  where  dni=E.dni)";
+        Statement st;
+        ResultSet rs;
+        try {
+            st = (Statement) conexion.createStatement();
+            rs = st.executeQuery(query);
+            empleado empleados;
+            while (rs.next()) {
+                empleados = new empleado(rs.getInt(1), rs.getString(2), rs.getString(3));
+                listaEmpleado.add(empleados);
+
+            }
+        } catch (Exception e) {
+            System.out.println("error");
+        }
+        return listaEmpleado;
     }
 }
