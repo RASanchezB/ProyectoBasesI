@@ -407,6 +407,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         admin_ControladoresBorrar.setText("Borrar");
+        admin_ControladoresBorrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                admin_ControladoresBorrarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -2187,16 +2192,23 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_tabla_controladoresMouseClicked
 
     private void boton_controladoresModiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_controladoresModiMouseClicked
-       String query = "UPDATE tecnico set tec_nombre='" + admin_TecnicoNombre.getText() + "',tec_direccion='" + admin_TecnicoDireccion.getText() + "',tec_telefono='" + admin_tecnicoTelefono.getText() + "',tec_sueldo='" + admin_TecnicoSalario.getText() + "' WHERE dni=" + Integer.parseInt(admin_TecnicoDni.getText());
+       String query = "UPDATE controlador_aereo set fecha_examen='" + new SimpleDateFormat("yyyy-mm-dd HH:mm:ss").format(admin_ContraFecha.getDate()) + "' WHERE dni=" + Integer.parseInt(admin_ContraDNI.getText());
         EjecutarSQL(query, "Actualizado");
-        MostrarTecnicosTabla();
-        admin_TecnicoNombre.setText("");
-        admin_TecnicoDireccion.setText("");
-        admin_tecnicoTelefono.setText("");
-        admin_TecnicoSalario.setText("");
-        admin_TecnicoDni.setText("");
-        admin_TecnicoContra.setText("");
+        MostrarControladorTabla();
+        admin_ContraFecha.setCalendar(null);
+        admin_ContraDNI.setText("");
+        admin_ContraContraseña.setText("");
+        
     }//GEN-LAST:event_boton_controladoresModiMouseClicked
+
+    private void admin_ControladoresBorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_admin_ControladoresBorrarMouseClicked
+       String query = "DELETE FROM controlador_aereo WHERE dni=" + Integer.parseInt(admin_ContraDNI.getText());
+        EjecutarSQL(query, "Actualizado");
+        MostrarControladorTabla();
+        admin_ContraFecha.setCalendar(null);
+        admin_ContraDNI.setText("");
+        admin_ContraContraseña.setText("");
+    }//GEN-LAST:event_admin_ControladoresBorrarMouseClicked
 
     public void MostrarEmpleadosTabla() {
         ArrayList<empleado> listaEmpleado = db.getlistaEmpleado();
